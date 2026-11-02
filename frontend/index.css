@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    background-color: #070e17;
+    color: #F0F6FC;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: rgba(11, 20, 32, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-glow {
+  background: rgba(13, 24, 38, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.1);
+}
+
+.glass-panel-danger {
+  background: rgba(26, 13, 20, 0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 77, 109, 0.35);
+  box-shadow: 0 0 25px rgba(255, 77, 109, 0.15);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar,
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track,
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #070e17;
+}
+
+::-webkit-scrollbar-thumb,
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1b293d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #00E5FF;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Card & UI Transitions */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pipeline Fluid Flow Animations */
+@keyframes pipeFlowDash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.pipe-flow-cyan {
+  stroke-dasharray: 12 8;
+  animation: pipeFlowDash 1s linear infinite;
+}
+
+.pipe-flow-red {
+  stroke-dasharray: 10 6;
+  animation: pipeFlowDash 0.45s linear infinite;
+}
+
+.pipe-flow-slow {
+  stroke-dasharray: 10 10;
+  animation: pipeFlowDash 1.8s linear infinite;
+}
+
+/* Pump Impeller Rotor Spin */
+@keyframes spinRotor {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-rotor {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: spinRotor 1.8s linear infinite;
+}
+
+.spin-rotor-fast {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: spinRotor 0.85s linear infinite;
+}
+
+/* Ultrasonic & Leak Radar Shockwaves */
+@keyframes ultrasonicWave {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.ultrasonic-wave {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: ultrasonicWave 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes leakPulseRing {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+.leak-pulse-ring {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: leakPulseRing 1.5s ease-out infinite;
+}
+
+/* Water Spray Jet Fountain Animation */
+@keyframes waterSprayJet {
+  0% {
+    transform: scaleY(0.94) scaleX(0.97);
+    opacity: 0.88;
+  }
+  100% {
+    transform: scaleY(1.06) scaleX(1.03);
+    opacity: 1;
+  }
+}
+
+.water-spray-jet {
+  transform-origin: bottom center;
+  transform-box: fill-box;
+  animation: waterSprayJet 0.35s ease-in-out infinite alternate;
+}
+
+/* Cooling Tower Rising Steam Clouds */
+@keyframes steamRise1 {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateY(-12px) scale(1.15);
+    opacity: 0.35;
+  }
+}
+
+@keyframes steamRise2 {
+  0%, 100% {
+    transform: translateY(-4px) scale(1.05);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-16px) scale(1.2);
+    opacity: 0.25;
+  }
+}
+
+.steam-cloud-1 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: steamRise1 3.6s ease-in-out infinite;
+}
+
+.steam-cloud-2 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: steamRise2 4.2s ease-in-out infinite;
+}
+
+/* Tank Water Surface Shimmer */
+@keyframes waterSurfacePulse {
+  0% {
+    opacity: 0.82;
+  }
+  100% {
+    opacity: 0.96;
+  }
+}
+
+.water-surface {
+  animation: waterSurfacePulse 2.4s ease-in-out infinite alternate;
+}
+
+/* Flow Arrow Pulse */
+@keyframes flowArrowPulse {
+  0%, 100% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 6px #00f2fe);
+  }
+  50% {
+    opacity: 0.45;
+    filter: drop-shadow(0 0 2px #00f2fe);
+  }
+}
+
+.flow-arrow-pulse {
+  animation: flowArrowPulse 1.4s ease-in-out infinite;
+}
+
+/* Critical Alert Beacon */
+@keyframes beaconPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px #ff5b67;
+  }
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 2px #ff5b67;
+  }
+}
+
+.beacon {
+  animation: beaconPulse 1.2s ease-in-out infinite;
+}
+
+/* Glow Utilities */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px #00E5FF);
+  }
+  50% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 2px #00E5FF);
+  }
+}
+
+@keyframes pulseDanger {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px #FF4D6D);
+  }
+  50% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 3px #FF4D6D);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse-danger {
+  animation: pulseDanger 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
